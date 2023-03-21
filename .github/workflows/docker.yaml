@@ -62,6 +62,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: octo-test
+      working-directory: RandomQuotes
 
       run: |
         # Build a docker container and push it to ECR
