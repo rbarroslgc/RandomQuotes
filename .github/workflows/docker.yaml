@@ -68,7 +68,6 @@ jobs:
         # Build a docker container and push it to ECR
         git_hash=$(git rev-parse --short "$GITHUB_SHA")
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:randomquotes .
-        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:randomquotes $ECR_REGISTRY/$ECR_REPOSITORY:randomquotes:${{ steps.determine_version.outputs.semVer }}
         echo "Pushing image to ECR..."
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:randomquotes
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:randomquotes"
